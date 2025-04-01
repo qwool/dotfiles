@@ -1,18 +1,48 @@
-theme="autumn_night"
+theme="base16_default_dark"
+# theme="autumn_night"
 
 [editor]
 bufferline = "multiple"
 line-number = "relative"
+auto-save = true
+cursorline = true
+[editor.file-picker]
+hidden = false
+
 [editor.cursor-shape]
 insert="bar"
+# [editor.statusline]
+# mode.normal = "nor//"
+# mode.insert = "ins//"
+# mode.select = "sel//"
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 ";" = "command_mode"
 C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 C-o = ":open ~/.config/helix/config.toml" # Maps Ctrl-o to opening of the helix config file
 tab = ":bn"
-C-O = ":config-reload"
+p = ":clipboard-paste-after"
+P = ":clipboard-paste-before"
+y = ":clipboard-yank-join"
+Y = ":clipboard-yank"
+R = ":clipboard-paste-replace"
+d = [":clipboard-yank-join", "delete_selection"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-k = ["half_page_up"]
+S-j = ["half_page_down"]
 [keys.normal.space]
+o = ":config-reload"
+r = ":run-shell-command ./task.sh"
 w = ":w"
 q = ":bc"
-[editor.soft-wrap]
-enable = true
+
+[keys.select]
+p = ":clipboard-paste-after"
+P = ":clipboard-paste-before"
+y = ":clipboard-yank-join"
+Y = ":clipboard-yank"
+R = ":clipboard-paste-replace"
+d = [":clipboard-yank-join", "delete_selection"]
